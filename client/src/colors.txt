@@ -1,0 +1,5 @@
+brown:
+brown[300] → #A1887F
+brown[400] → #8D6E63
+
+<Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center', p: 4, bgcolor: '#f0f2f5' }}>
