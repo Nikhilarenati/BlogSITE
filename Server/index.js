@@ -6,10 +6,10 @@ const userRoutes=require("./routes/user1");
 const blogRoutes=require("./routes/blog2")
 const cors=require("cors")
 const app=express();
-PORT=8000;
+const PORT = process.env.PORT || 8000;
 
 //Mongoose connection:
-mongoose.connect("mongodb+srv://renatinikhila07:Measdsa70@cluster0.scoprqb.mongodb.net/?appName=Cluster0")
+mongoose.connect(process.env.MONGO_URI)
 .then (()=>{
     console.log("MogoDb connected sucessfully");
 })

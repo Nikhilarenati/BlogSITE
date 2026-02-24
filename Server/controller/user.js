@@ -32,7 +32,7 @@ const signUp = async (req, res) => {
         });
 
         // 6. Generate Token
-        const token = jwt.sign({ email: result.email, id: result._id }, 'test', { expiresIn: "1h" });
+        const token = jwt.sign({ id: result._id }, process.env.JWT_SECRET, { expiresIn: '1h' });
 
         res.status(201).json({ result, token });
     } catch (error) {

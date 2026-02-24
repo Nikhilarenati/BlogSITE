@@ -9,7 +9,7 @@ const auth = async (req, res, next) => {
     if (!token || token.length === 0) return res.status(401).send('Unauthorized');
 
     let decodedData;
-    decodedData = jwt.verify(token, 'test');
+    decodedData = jwt.verify(token, process.env.JWT_SECRET);
     req.userId = decodedData?.id;
 
     next();
