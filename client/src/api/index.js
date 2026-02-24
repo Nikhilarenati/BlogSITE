@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const API = axios.create({ baseURL: 'http://localhost:8000' }); 
+const API = axios.create({
+  baseURL: process.env.REACT_APP_API_URL
+});
 
 export const signInAPI = (formData) => API.post('/user/signin', formData);
 export const signUpAPI = (formData) => API.post('/user/signup', formData);
