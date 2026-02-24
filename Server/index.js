@@ -8,6 +8,8 @@ const cors=require("cors")
 const app=express();
 const PORT = process.env.PORT || 8000;
 
+const FRONTEND_URL = process.env.FRONTEND_URL;
+
 //Mongoose connection:
 mongoose.connect(process.env.MONGO_URI)
 .then (()=>{
@@ -20,7 +22,8 @@ mongoose.connect(process.env.MONGO_URI)
 //middleware:
 app.use(cors())
 app.use(cors({
-    origin:'http://localhost:3000'
+    origin: FRONTEND_URL,
+    credentials: true
 }))
 app.use(express.json({ limit: '30mb' })); // Built-in alternative to body-parser
 app.use(express.urlencoded({ limit: '30mb', extended: true }));
